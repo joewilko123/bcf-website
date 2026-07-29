@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>British Candlemakers Federation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:  #1B2A4A;
+      --gold:  #B89A6A;
+      --white: #FFFFFF;
+      --off:   #F7F6F3;
+      --text:  #2C2C2C;
+      --mid:   #666666;
+      --light: #999999;
+      --border:#E0DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img { height: 42px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 0 18px;
+      height: 68px;
+      line-height: 68px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+      border-bottom-color: var(--gold);
+    }
+
+    .nav-member {
+      margin-left: 16px;
+      background: var(--navy);
+      color: var(--white) !important;
+      border-radius: 3px;
+      height: auto !important;
+      line-height: normal !important;
+      padding: 9px 20px !important;
+      border-bottom: none !important;
+      font-weight: 500 !important;
+      transition: background 0.15s !important;
+    }
+
+    .nav-member:hover {
+      background: #263d6b !important;
+      border-bottom-color: transparent !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--navy);
+      padding: 96px 40px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 12px 28px;
+      border-radius: 3px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-gold:hover { background: #c9ab7c; }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      border-color: rgba(255,255,255,0.25);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-dark {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-dark:hover { background: #263d6b; }
+
+    /* Hero right — stat block */
+    .hero-stats {
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-stat {
+      padding: 28px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat:last-child { border-bottom: none; }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat-num em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-stat-label {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── DIVIDER STRIP ─── */
+    .strip {
+      background: var(--gold);
+      padding: 14px 40px;
+      text-align: center;
+    }
+
+    .strip p {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    /* ─── SHARED SECTION ─── */
+    .section {
+      padding: 88px 40px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(26px, 2.5vw, 38px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-heading em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .section-lead {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.8;
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+
+    .rule {
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px 0 32px;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .about-body p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .about-img {
+      background: var(--off);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ─── OBJECTIVES ─── */
+    .bg-off { background: var(--off); }
+
+    .obj-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+
+    .obj-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .obj-tile {
+      background: var(--white);
+      padding: 36px 32px;
+    }
+
+    .obj-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .obj-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .obj-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* ─── MEMBERSHIP ─── */
+    .mem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      margin-top: 0;
+    }
+
+    .mem-card {
+      background: var(--navy);
+      padding: 48px 44px;
+    }
+
+    .mem-card .eyebrow { color: var(--gold); margin-bottom: 16px; }
+
+    .mem-card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .mem-card-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .mem-benefits {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+
+    .mem-benefits li {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .mem-benefits li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    .mem-info {
+      background: var(--white);
+      padding: 48px 44px;
+    }
+
+    .mem-info-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .mem-info-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ─── STAT BAR ─── */
+    .stat-bar {
+      background: var(--navy);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-item {
+      padding: 52px 40px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(36px, 3vw, 48px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-num em { font-style: italic; color: var(--gold); }
+
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      font-weight: 400;
+    }
+
+    /* ─── NEWS ─── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .news-card {
+      border-top: 2px solid var(--border);
+      padding-top: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .news-card:hover { border-top-color: var(--gold); }
+
+    .news-date {
+      font-size: 11px;
+      color: var(--light);
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .news-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .news-excerpt {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .news-link {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+
+    .news-link:hover { opacity: 0.7; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      padding: 64px 40px 32px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 56px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 28px;
+    }
+
+    .footer-logo { margin-bottom: 16px; }
+    .footer-logo img { height: 44px; filter: brightness(0) invert(1); opacity: 0.85; }
+
+    .footer-tagline {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .footer-col-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .footer-links { list-style: none; }
+
+    .footer-links li { margin-bottom: 10px; }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      .nav-inner { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 64px 24px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .section { padding: 64px 24px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .obj-header { grid-template-columns: 1fr; }
+      .obj-grid { grid-template-columns: 1fr; }
+      .mem-grid { grid-template-columns: 1fr; }
+      .stat-bar { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .strip { padding: 14px 24px; }
+    }
+
+    @media (max-width: 560px) {
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
+      .hero-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="logo.png" alt="British Candlemakers Federation">
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="objectives.html">Objectives</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="safety.html">Candle Safety</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="members.html" class="nav-member">Member Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-label">British Candlemakers Federation</span>
+        <h1 class="hero-title">The voice of the UK's <em>candle industry</em></h1>
+        <p class="hero-desc">Representing manufacturers and suppliers across Britain since 1978 — promoting safety, quality and the interests of the trade at home and abroad.</p>
+        <div class="hero-btns">
+          <a href="membership.html" class="btn btn-gold">Become a Member</a>
+          <a href="about.html" class="btn btn-ghost">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><em>40</em>+</div>
+          <div class="hero-stat-label">Member Companies</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><em>50</em>%+</div>
+          <div class="hero-stat-label">of UK Candle Output</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><em>1978</em></div>
+          <div class="hero-stat-label">Founded in Britain</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <p>One of the world's leading candle industry associations — proudly founded and based in Britain</p>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">About the BCF</p>
+          <h2 class="section-heading">Passionate about candles. <em>Committed to the industry.</em></h2>
+          <div class="rule"></div>
+          <div class="about-body">
+            <p>The British Candlemakers Federation represents UK candle manufacturers and their suppliers. With around 40 members, our companies together produce more than half of all candle output within the UK — making us one of the leading candle associations in the world.</p>
+            <p>We work to promote the interests of our members, uphold the highest standards of candle safety, and ensure the UK candle industry has a strong, united voice with government, regulators and the public.</p>
+            <p>The BCF and its members are proud to partner with Cornwall Council under the UK government's Primary Authority scheme.</p>
+          </div>
+          <br>
+          <a href="about.html" class="btn btn-dark" style="margin-top:8px;">Find Out More</a>
+        </div>
+        <div class="about-img">Image placeholder</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJECTIVES -->
+  <section class="section bg-off" id="objectives">
+    <div class="section-inner">
+      <div class="obj-header">
+        <div>
+          <p class="eyebrow">What We Do</p>
+          <h2 class="section-heading">Our <em>objectives</em></h2>
+          <div class="rule"></div>
+        </div>
+        <p class="section-lead" style="margin-bottom:0;">The BCF exists to serve and strengthen the UK candle industry across several key areas — from regulatory representation to consumer safety.</p>
+      </div>
+      <div class="obj-grid">
+        <div class="obj-tile">
+          <div class="obj-num">01</div>
+          <div class="obj-title">Industry Representation</div>
+          <p class="obj-body">Representing the interests of UK candle manufacturers and suppliers with government and regulators at home and abroad.</p>
+        </div>
+        <div class="obj-tile">
+          <div class="obj-num">02</div>
+          <div class="obj-title">Candle Safety</div>
+          <p class="obj-body">Promoting and upholding the highest standards of candle safety — working with members to ensure British candles meet all relevant regulations.</p>
+        </div>
+        <div class="obj-tile">
+          <div class="obj-num">03</div>
+          <div class="obj-title">Industry Standards</div>
+          <p class="obj-body">Setting and maintaining quality standards across the industry — helping members produce candles that consumers can trust.</p>
+        </div>
+        <div class="obj-tile">
+          <div class="obj-num">04</div>
+          <div class="obj-title">Member Support</div>
+          <p class="obj-body">Providing members with access to resources, guidance, industry updates and a network of fellow candle professionals.</p>
+        </div>
+        <div class="obj-tile">
+          <div class="obj-num">05</div>
+          <div class="obj-title">Consumer Education</div>
+          <p class="obj-body">Educating consumers on candle safety, quality and the value of buying from reputable British manufacturers.</p>
+        </div>
+        <div class="obj-tile">
+          <div class="obj-num">06</div>
+          <div class="obj-title">Industry Growth</div>
+          <p class="obj-body">Supporting the sustainable growth of the UK candle industry — fostering innovation, quality and the long-term health of the trade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP -->
+  <section class="section" id="membership">
+    <div class="section-inner">
+      <p class="eyebrow">Join the Federation</p>
+      <h2 class="section-heading">Become a <em>member</em></h2>
+      <div class="rule"></div>
+      <div class="mem-grid">
+        <div class="mem-card">
+          <p class="eyebrow">BCF Membership</p>
+          <h3 class="mem-card-title">The benefits of joining</h3>
+          <p class="mem-card-body">Membership of the BCF gives your business access to a range of resources, support and representation that strengthens your position in the UK candle industry.</p>
+          <ul class="mem-benefits">
+            <li>Industry representation with government and regulators</li>
+            <li>Access to candle safety guidance and resources</li>
+            <li>Members-only portal and industry updates</li>
+            <li>Networking with leading UK candle manufacturers</li>
+            <li>BCF member status and use of the BCF mark</li>
+            <li>Access to the Primary Authority scheme</li>
+          </ul>
+          <a href="contact.html" class="btn btn-gold">Apply for Membership</a>
+        </div>
+        <div class="mem-info">
+          <h3 class="mem-info-title">Who can join?</h3>
+          <p class="mem-info-body">Membership of the BCF is open to UK candle manufacturers and their direct suppliers. Whether you're an established producer or a growing independent maker, we'd love to hear from you.</p>
+          <p class="mem-info-body">To find out more about membership eligibility, fees and the application process, get in touch with our team directly.</p>
+          <a href="contact.html" class="btn btn-dark">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <div class="stat-num"><em>40</em>+</div>
+      <div class="stat-label">Members Nationwide</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><em>50</em>%</div>
+      <div class="stat-label">of UK Candle Production</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><em>45</em>+</div>
+      <div class="stat-label">Years Representing the Trade</div>
+    </div>
+  </div>
+
+  <!-- NEWS -->
+  <section class="section bg-off">
+    <div class="section-inner">
+      <p class="eyebrow">Latest News</p>
+      <h2 class="section-heading">News & <em>updates</em></h2>
+      <div class="rule"></div>
+      <div class="news-grid">
+        <div class="news-card">
+          <p class="news-date">July 2026</p>
+          <h3 class="news-title">BCF welcomes new members to the Federation</h3>
+          <p class="news-excerpt">The BCF is pleased to welcome several new member companies to the Federation this summer, strengthening our representation of the UK candle industry.</p>
+          <a href="news.html" class="news-link">Read More</a>
+        </div>
+        <div class="news-card">
+          <p class="news-date">June 2026</p>
+          <h3 class="news-title">New candle safety guidance published</h3>
+          <p class="news-excerpt">Updated guidance on candle safety best practice has been published for BCF members, covering labelling requirements and testing standards.</p>
+          <a href="news.html" class="news-link">Read More</a>
+        </div>
+        <div class="news-card">
+          <p class="news-date">May 2026</p>
+          <h3 class="news-title">BCF attends industry trade show</h3>
+          <p class="news-excerpt">Representatives from the BCF attended this year's leading industry trade event, meeting with members and discussing the future of the UK candle market.</p>
+          <a href="news.html" class="news-link">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <img src="logo.png" alt="British Candlemakers Federation">
+          </div>
+          <p class="footer-tagline">Representing the UK candle industry since 1978. Promoting safety, quality and the interests of the trade at home and abroad.</p>
+        </div>
+        <div>
+          <p class="footer-col-title">About</p>
+          <ul class="footer-links">
+            <li><a href="about.html">About the BCF</a></li>
+            <li><a href="objectives.html">Objectives</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="news.html">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="safety.html">Candle Safety</a></li>
+            <li><a href="resources.html">Industry Resources</a></li>
+            <li><a href="links.html">Useful Links</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Contact</p>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="membership.html">Join the BCF</a></li>
+            <li><a href="members.html">Member Login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 British Candlemakers Federation. All rights reserved.</p>
+        <p>Proudly founded in Britain.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
