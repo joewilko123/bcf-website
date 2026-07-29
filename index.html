@@ -133,8 +133,8 @@
     }
 
     .hero-title em {
-      font-style: italic;
-      color: var(--gold);
+      font-style: normal;
+      color: var(--navy);
     }
 
     .hero-desc {
@@ -166,10 +166,10 @@
     }
 
     .btn-gold {
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--navy);
+      color: var(--white);
     }
-    .btn-gold:hover { background: #c9ab7c; }
+    .btn-gold:hover { background: #263d6b; }
 
     .btn-ghost {
       background: transparent;
@@ -187,6 +187,7 @@
     /* Hero right — stat block */
     .hero-stats {
       border: 1px solid var(--border);
+      background: var(--off);
     }
 
     .hero-stat {
@@ -206,7 +207,7 @@
 
     .hero-stat-num em {
       font-style: italic;
-      color: var(--gold);
+      color: var(--navy);
     }
 
     .hero-stat-label {
@@ -218,7 +219,7 @@
 
     /* ─── DIVIDER STRIP ─── */
     .strip {
-      background: var(--gold);
+      background: var(--navy);
       padding: 14px 40px;
       text-align: center;
     }
@@ -228,7 +229,7 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--navy);
+      color: rgba(255,255,255,0.6);
     }
 
     /* ─── SHARED SECTION ─── */
@@ -260,8 +261,9 @@
     }
 
     .section-heading em {
-      font-style: italic;
+      font-style: normal;
       font-weight: 300;
+      color: var(--navy);
     }
 
     .section-lead {
@@ -608,6 +610,10 @@
 </head>
 <body>
 
+  <div style="background: var(--navy); padding: 8px 40px; text-align:right;">
+    <p style="font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:0.08em;">The British Candlemakers Federation — Representing the UK candle industry since 1978</p>
+  </div>
+
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
@@ -631,26 +637,30 @@
   <section class="hero">
     <div class="hero-inner">
       <div>
+        <img src="logo.png" alt="British Candlemakers Federation" style="height:56px; margin-bottom:32px;">
         <span class="hero-label">British Candlemakers Federation</span>
-        <h1 class="hero-title">The voice of the UK's <em>candle industry</em></h1>
+        <h1 class="hero-title">The voice of the UK's candle industry</h1>
         <p class="hero-desc">Representing manufacturers and suppliers across Britain since 1978 — promoting safety, quality and the interests of the trade at home and abroad.</p>
         <div class="hero-btns">
           <a href="membership.html" class="btn btn-gold">Become a Member</a>
           <a href="about.html" class="btn btn-ghost">Learn More</a>
         </div>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num"><em>40</em>+</div>
-          <div class="hero-stat-label">Member Companies</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num"><em>50</em>%+</div>
-          <div class="hero-stat-label">of UK Candle Output</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num"><em>1978</em></div>
-          <div class="hero-stat-label">Founded in Britain</div>
+      <div>
+        <img src="hero-placeholder.jpg" alt="BCF" style="width:100%; margin-bottom:16px; display:block;">
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num"><em>40</em>+</div>
+            <div class="hero-stat-label">Member Companies</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num"><em>50</em>%+</div>
+            <div class="hero-stat-label">of UK Candle Output</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num"><em>1978</em></div>
+            <div class="hero-stat-label">Founded in Britain</div>
+          </div>
         </div>
       </div>
     </div>
@@ -667,7 +677,7 @@
       <div class="about-grid">
         <div>
           <p class="eyebrow">About the BCF</p>
-          <h2 class="section-heading">Passionate about candles. <em>Committed to the industry.</em></h2>
+          <h2 class="section-heading">Passionate about candles. Committed to the industry.</h2>
           <div class="rule"></div>
           <div class="about-body">
             <p>The British Candlemakers Federation represents UK candle manufacturers and their suppliers. With around 40 members, our companies together produce more than half of all candle output within the UK — making us one of the leading candle associations in the world.</p>
@@ -688,7 +698,7 @@
       <div class="obj-header">
         <div>
           <p class="eyebrow">What We Do</p>
-          <h2 class="section-heading">Our <em>objectives</em></h2>
+          <h2 class="section-heading">Our objectives</h2>
           <div class="rule"></div>
         </div>
         <p class="section-lead" style="margin-bottom:0;">The BCF exists to serve and strengthen the UK candle industry across several key areas — from regulatory representation to consumer safety.</p>
@@ -732,7 +742,7 @@
   <section class="section" id="membership">
     <div class="section-inner">
       <p class="eyebrow">Join the Federation</p>
-      <h2 class="section-heading">Become a <em>member</em></h2>
+      <h2 class="section-heading">Become a member</h2>
       <div class="rule"></div>
       <div class="mem-grid">
         <div class="mem-card">
@@ -779,7 +789,7 @@
   <section class="section bg-off">
     <div class="section-inner">
       <p class="eyebrow">Latest News</p>
-      <h2 class="section-heading">News & <em>updates</em></h2>
+      <h2 class="section-heading">News & updates</h2>
       <div class="rule"></div>
       <div class="news-grid">
         <div class="news-card">
