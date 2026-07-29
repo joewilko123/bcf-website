@@ -100,7 +100,7 @@
 
     /* ─── HERO ─── */
     .hero {
-      background: var(--navy);
+      background: var(--white);
       padding: 96px 40px;
     }
 
@@ -127,7 +127,7 @@
       font-family: 'Playfair Display', Georgia, serif;
       font-size: clamp(32px, 3.5vw, 52px);
       font-weight: 400;
-      color: var(--white);
+      color: var(--navy);
       line-height: 1.12;
       margin-bottom: 24px;
     }
@@ -140,7 +140,7 @@
     .hero-desc {
       font-size: 16px;
       font-weight: 300;
-      color: rgba(255,255,255,0.65);
+      color: var(--mid);
       line-height: 1.8;
       margin-bottom: 36px;
       max-width: 520px;
@@ -173,8 +173,8 @@
 
     .btn-ghost {
       background: transparent;
-      color: rgba(255,255,255,0.8);
-      border-color: rgba(255,255,255,0.25);
+      color: var(--navy);
+      border-color: var(--border);
     }
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
@@ -186,12 +186,12 @@
 
     /* Hero right — stat block */
     .hero-stats {
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--border);
     }
 
     .hero-stat {
       padding: 28px 32px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--border);
     }
     .hero-stat:last-child { border-bottom: none; }
 
@@ -199,7 +199,7 @@
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 36px;
       font-weight: 400;
-      color: var(--white);
+      color: var(--navy);
       line-height: 1;
       margin-bottom: 4px;
     }
@@ -212,7 +212,7 @@
     .hero-stat-label {
       font-size: 12px;
       font-weight: 300;
-      color: rgba(255,255,255,0.45);
+      color: var(--light);
       letter-spacing: 0.05em;
     }
 
