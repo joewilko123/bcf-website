@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members — British Candlemakers Federation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:  #1B2A4A;
+      --gold:  #B89A6A;
+      --white: #FFFFFF;
+      --off:   #F7F6F3;
+      --text:  #2C2C2C;
+      --mid:   #666666;
+      --light: #999999;
+      --border:#E0DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: var(--white);
+      padding: 8px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+      height: 80px;
+    }
+
+    .nav-logo img { height: auto; width: auto; max-height: 100px; display: block; }
+
+    .nav-pill {
+      background: var(--white);
+      border-radius: 50px;
+      padding: 10px 8px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
+
+    .nav-links a {
+      display: block;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-member {
+      margin-left: 8px;
+      background: var(--navy);
+      color: var(--white) !important;
+      border-radius: 50px;
+      padding: 10px 22px !important;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+      transition: background 0.15s;
+    }
+
+    .nav-member:hover { background: #263d6b !important; }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: var(--navy);
+      padding: 80px 40px;
+    }
+
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; }
+
+    .page-hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .page-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+      max-width: 640px;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 40px;
+    }
+
+    .breadcrumb-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--light);
+    }
+
+    .breadcrumb a { color: var(--light); transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb span { color: var(--navy); }
+
+    /* CATEGORY NAV */
+    .cat-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      position: sticky;
+      top: 96px;
+      z-index: 98;
+    }
+
+    .cat-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+
+    .cat-nav a {
+      display: block;
+      padding: 16px 24px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--mid);
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+
+    .cat-nav a:hover { color: var(--navy); border-bottom-color: var(--border); }
+    .cat-nav a.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 500; }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 40px;
+    }
+
+    /* Category section */
+    .cat-section { margin-bottom: 80px; }
+
+    .cat-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cat-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--navy);
+    }
+
+    .cat-count {
+      font-size: 12px;
+      color: var(--light);
+      font-weight: 300;
+    }
+
+    /* Member cards grid */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .member-card {
+      background: var(--white);
+      padding: 28px;
+      transition: background 0.2s;
+    }
+
+    .member-card:hover { background: var(--off); }
+
+    .member-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .member-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .member-details {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .member-detail {
+      font-size: 12px;
+      color: var(--light);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .member-detail-label {
+      font-weight: 500;
+      color: var(--mid);
+      flex-shrink: 0;
+      min-width: 52px;
+    }
+
+    .member-detail a {
+      color: var(--navy);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.15s;
+      word-break: break-all;
+    }
+
+    .member-detail a:hover { border-bottom-color: var(--gold); }
+
+    /* STAT BAR */
+    .stat-bar {
+      background: var(--navy);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-item {
+      padding: 52px 40px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(36px, 3vw, 48px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      padding: 64px 40px 32px;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 56px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 28px;
+    }
+
+    .footer-logo { margin-bottom: 16px; }
+    .footer-logo img { height: 44px; filter: brightness(0) invert(1); opacity: 0.85; }
+    .footer-tagline { font-size: 13px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.45); }
+    .footer-col-title { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.5); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 960px) {
+      nav { padding: 8px 24px; }
+      .nav-pill { display: none; }
+      .page-hero { padding: 56px 24px; }
+      .breadcrumb { padding: 12px 24px; }
+      .cat-nav { padding: 0 24px; top: 80px; overflow-x: auto; }
+      .content-wrap { padding: 48px 24px; }
+      .members-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-bar { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 560px) {
+      .members-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="British Candlemakers Federation">
+      </a>
+      <div class="nav-pill">
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="objectives.html">Objectives</a></li>
+          <li><a href="membership.html" style="color:var(--navy); font-weight:500;">Membership</a></li>
+          <li><a href="safety.html">Candle Safety</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="members.html" class="nav-member">Member Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Our Members</p>
+      <h1 class="page-hero-title">The companies that make up the British Candlemakers Federation</h1>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="membership.html">Membership</a>
+      <span>›</span>
+      <span>Our Members</span>
+    </div>
+  </div>
+
+  <!-- CATEGORY NAV -->
+  <div class="cat-nav">
+    <div class="cat-nav-inner">
+      <a href="#manufacturers" class="active">Candle Manufacturers</a>
+      <a href="#suppliers">Suppliers</a>
+      <a href="#laboratories">Laboratories and Consultants</a>
+      <a href="#guilds">Guilds</a>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- CANDLE MANUFACTURERS -->
+    <div class="cat-section" id="manufacturers">
+      <div class="cat-header">
+        <h2 class="cat-title">Candle Manufacturers</h2>
+        <span class="cat-count">62 members</span>
+      </div>
+      <div class="members-grid">
+
+        <div class="member-card">
+          <div class="member-name">5 Wytches</div>
+          <p class="member-desc">5 Wytches hand pours beautifully blended coconut and soy candles from their studio in Devon. Using sustainable wax, cruelty free fragrances, plus recyclable containers and packaging wherever possible.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.5Wytches.com" target="_blank">www.5wytches.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:admin@5wtches.com">admin@5wtches.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>+44 (0) 7493 518625</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">ARCO England Ltd</div>
+          <p class="member-desc">Home fragrance manufacturer based in Warminster, Wiltshire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.truegrace.com" target="_blank">www.truegrace.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@truegrace.com">sales@truegrace.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01985 210890</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Roman Way, Crusader Park, Warminster, Wiltshire, BA12 8SJ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Arran Aromatics Ltd</div>
+          <p class="member-desc">Founded in 1989 on the Isle of Arran. Handcrafting luxury candles, bath and body, perfumery and home fragrance products. All candles produced at the Home Farm on the Isle of Arran.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.arran.com" target="_blank">www.arran.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@arran.com">info@arran.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01770 302595</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>The Home Farm, Brodick, Isle of Arran, KA27 8DD</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">AVES Candles</div>
+          <p class="member-desc">Proudly paraffin-free, 100% natural, clean burning soy wax candles luxuriously scented with cruelty-free fragrances. Committed to ecological packaging and sustainable containers.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.avescandles.co.uk" target="_blank">www.avescandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:avescandles@gmail.com">avescandles@gmail.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07956 365899</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>103 Gills Hill Lane, Radlett, Hertfordshire, WD7 8PD</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Best Kept Secrets</div>
+          <p class="member-desc">A small family run business manufacturing a wide range of seriously scented candles in tins and glass. High quality handmade products at sensible prices.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.bestkeptsecrets.co.uk" target="_blank">www.bestkeptsecrets.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@bestkeptsecrets.co.uk">sales@bestkeptsecrets.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01670 512222</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>3G Coopies Field, Coopies Lane Industrial Estate, Morpeth, NE61 6JT</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Beverley Tindale The Ritual Rooms</div>
+          <p class="member-desc">Beauty salon and candle maker based in Corbridge, Northumberland.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.theritualroomscorbridge.co.uk" target="_blank">www.theritualroomscorbridge.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:ritualroomsbev@gmail.com">ritualroomsbev@gmail.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07792 784521</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>20A Watling Street, Corbridge, Northumberland, NE45 5AH</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Breeze Candles</div>
+          <p class="member-desc">Trading since May 2015. Selling candles, diffusers and melts across the Isle of Man and to UK customers.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.breezecandles.im" target="_blank">www.breezecandles.im</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:breezecandlesiom@gmail.com">breezecandlesiom@gmail.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07624 332570</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>7 St Mary's Meadow, Ballaugh, Isle of Man, IM7 5AJ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Bwthyn Ltd</div>
+          <p class="member-desc">Multi award winning family run business offering retail and wholesale. Using only the finest locally sourced and sustainable ingredients, their candles and fragrances tell the tales of the rich history and mysticism of Wales.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.bwthyn.co.uk" target="_blank">www.bwthyn.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@bwthyn.co.uk">hello@bwthyn.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>02922 701000</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>47 Cardiff Road, Caerphilly, Wales, CF81 1FP</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">By Nala</div>
+          <p class="member-desc">Small UK business making hand-poured candles, wax melts and other products whilst sourcing eco friendly materials.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@bynala.co.uk">info@bynala.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07889 988357</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>8 Barleyfield, Clayton Le Woods, Preston, Lancashire, PR5 8JQ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Candle Shack Ltd</div>
+          <p class="member-desc">Creates beautiful scented candles and reed diffusers for luxury brand owners worldwide. Also sells quality candle making supplies and bespoke luxury packaging to small EU based candle manufacturers.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.candle-shack.co.uk" target="_blank">www.candle-shack.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:duncan@candle-shack.co.uk">duncan@candle-shack.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01324 227354</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit A, West Carron Works, Stenhouse Road, Carron, Stirlingshire, FK2 8DR</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Candles and Oud Ltd</div>
+          <p class="member-desc">Sells oud inspired fragrances, diffusers, candles and skin care.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.candlesandoud.com" target="_blank">www.candlesandoud.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:support@candlesandoud.com">support@candlesandoud.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07825 517806</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>602 Lock Studios, 7 Corsican Square, London, E3 3YD</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Canova Home and Fragrance Ltd</div>
+          <p class="member-desc">Develops, designs, manufactures and wholesales a wide and award winning range of home gift and fragrance products. Most products manufactured at their Herefordshire factory. Also offers a bespoke service and manufactures own brand candles.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.thisiscanova.com" target="_blank">www.thisiscanova.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@canova.co.uk">info@canova.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01885 485090</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Units 2-3, Porthouse Industrial Estate, Bromyard, Herefordshire, HR7 4FL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Charles Farris and Co Ltd</div>
+          <p class="member-desc">Candle manufacturer based in Mere, Wiltshire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.charlesfarris.co.uk" target="_blank">www.charlesfarris.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@charlesfarris.co.uk">sales@charlesfarris.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01747 861839</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Quarry Fields, Mere, Wiltshire, BA12 6LA</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Chase Candles</div>
+          <p class="member-desc">Family run business making small batch hand poured scented candles from their workshop in the heart of Cannock Chase. Made using traditional methods, cruelty free and vegan.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.chasecandles.co.uk" target="_blank">www.chasecandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@chasecandles.co.uk">hello@chasecandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Cannock Chase, Staffordshire</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Chiltern Candle Co</div>
+          <p class="member-desc">Artisan home fragrance producer based in Buckinghamshire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.chilterncandle.co.uk" target="_blank">www.chilterncandle.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:trish@chilterncandle.co.uk">trish@chilterncandle.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07967 326502</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>17 Abbotswood, Speen, Bucks, HP27 0SR</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Contract Candles and Diffusers Ltd</div>
+          <p class="member-desc">Specialising in the development, design and manufacture of bespoke candles and reed diffusers for some of the largest suppliers to the premium end of the global market. Quality Certified to ISO 9001.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.contractcandles.com" target="_blank">www.contractcandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:admin@contractcandles.com">admin@contractcandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01428 645433</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Lower Lodge, Vann Road, Fernhurst, Surrey, GU27 3NH</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Copenhagen Candle Company</div>
+          <p class="member-desc">Incorporated in 1999, with two wholly owned manufacturing sites in the UK and China. One of the UK's largest private label reed diffuser and candle manufacturers offering a bespoke start to finish service.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.copenhagencandles.co.uk" target="_blank">www.copenhagencandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@copenhagencandles.co.uk">sales@copenhagencandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01892 157131</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Kings Toil, Maidstone Road, Hatfield, Kent, TN12 7HAQ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Cornwall Soap Box Ltd</div>
+          <p class="member-desc">Candle and soap maker based in St Ives, Cornwall.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.cornwallsoapbox.co.uk" target="_blank">www.cornwallsoapbox.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@cornwallsoapbox.co.uk">sales@cornwallsoapbox.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01736 758358</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>1A The Wharf, St Ives, Cornwall, TR26 1LG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">DOME of Harrogate</div>
+          <p class="member-desc">A luxury brand producing high end, essential oil blend home fragrance products and a leading boutique contract manufacturer. Based in Harrogate with a broad range of national and international clients across multiple market sectors.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.domeluxury.com" target="_blank">www.domeluxury.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@domeluxury.com">sales@domeluxury.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07414 960097</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 103, Hammerain House, Hookstone Avenue, Harrogate, HG3 8ER</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Elsie and Tom</div>
+          <p class="member-desc">Luxury candles hand poured and blended with pure essential oils, soy and natural vegetable oil. All blends are unique with therapeutic aromatherapy benefits.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.elsieandtom.co.uk" target="_blank">www.elsieandtom.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:helo@elsieandtom.co.uk">helo@elsieandtom.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07710 689446</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>10 Queen Street, Ipswich, Suffolk, IP1 1SS</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Eriskay Candles</div>
+          <p class="member-desc">Artisan hand poured candles made with Rapeseed wax. Presented in glass black and white vessels in various sizes with a steel lid and luxury black gift box. Working with eco friendly and sustainable Rapeseed wax from the UK and Europe.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.eriskaycandles.com" target="_blank">www.eriskaycandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@eriskaycandles.com">info@eriskaycandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07964 098182</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>76 Macbeth Moir Road, Musselburgh, East Lothian, EN21 8DG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Essential Touch Ltd</div>
+          <p class="member-desc">Handmade soya wax candles with over 30 fragrances including festive, fresh, floral, fruity, spicy, musky and earthy. Presented in elegant glass jars and created to calm, evoke pleasant memories and enhance any environment.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.essentialtouchltd.co.uk" target="_blank">www.essentialtouchltd.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:julia@essentialtouch.com">julia@essentialtouch.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07789 483136</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>4 View Drive, Albion Street, Oakham, Dudley, DY2 7TD</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Evermore London Limited</div>
+          <p class="member-desc">Proudly poured in England. Evermore Candles are crafted responsibly with locally sourced ingredients and sustainable packaging.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.evermorelondon.com" target="_blank">www.evermorelondon.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@evermorelondon.com">info@evermorelondon.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0207 739 7234</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 55, Cromwell Industrial Estate, Staffa Road, London, E10 7QZ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Fantasy Candles</div>
+          <p class="member-desc">Candle manufacturer based in Aberystwyth, Ceredigion.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.fantasy-candles.com" target="_blank">www.fantasy-candles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@fantasy-candles.com">sales@fantasy-candles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01974 261131</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Llwyn Helyg, Cnwch Coch, Aberystwyth, Ceredigion, SY23 4LG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Hayes and Finch</div>
+          <p class="member-desc">One of the world's finest manufacturers and suppliers of church furnishings and church candles. Also offers a comprehensive range of products and services to the candle making industry including candle wicks and cores.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.hfltd.com" target="_blank">www.hfltd.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@hfltd.com">hello@hfltd.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0845 450 5593</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Hanson Road, Aintree, Liverpool, Merseyside, L9 7BP</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">House of BlueBelle</div>
+          <p class="member-desc">Established in 2015. Creates hand poured candles, reed diffusers, home fragrance and bath and body products using traditional methods and the finest raw materials with emphasis on quality.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.houseofbluebelle.co.uk" target="_blank">www.houseofbluebelle.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@houseofbluebelle.co.uk">info@houseofbluebelle.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01491 612734</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>The Mill House, 29 Mill Lane, Chalgrove, Oxfordshire, OX44 7SL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Isaac Jacobs Candles</div>
+          <p class="member-desc">English artisan candle manufacturer set in the heart of the Yorkshire Pennines. Produces high quality natural wax candles with a modern urban apothecary style. Design led to ensure every element enhances your home.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.isaacjacobs.co.uk" target="_blank">www.isaacjacobs.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sarah.janes@ntlworld.com">sarah.janes@ntlworld.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01484 310774</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>20 The Grove, Huddersfield, W Yorks, HD2 1BL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Janie Wilson Ltd</div>
+          <p class="member-desc">Candle manufacturer based in Farsley, Leeds.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.janiewilson.co.uk" target="_blank">www.janiewilson.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:enquiries@janiewilson.co.uk">enquiries@janiewilson.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0113 256 6331</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>7-9 Cape Mills, Coal Hill Lane, Farsley, Leeds, LS28 5NA</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Jo Macfarlane Ltd</div>
+          <p class="member-desc">Scottish luxury brand creating private label candles for luxury hotels across Scotland and London. Also teaches in-person and online candle making. Manufacturing home fragranced products, soy candles and reed diffusers.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.jomacfarlane.com" target="_blank">www.jomacfarlane.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:jo@jomacfarlane.com">jo@jomacfarlane.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07976 881759</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 1 and 2 Murray Studios, 21 Cunzie Street, Anstruther, Fife, KY10 3DF</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">John Gosnell and Co</div>
+          <p class="member-desc">Family run business designing, developing and manufacturing scented candles, home fragrance products, toiletries and cosmetics to customer requirement. Flexible production facility using the latest candle filling technology.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.johngosnell.com" target="_blank">www.johngosnell.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@johngosnell.com">sales@johngosnell.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01273 473772</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Phoenix Place, North Street, Lewes, East Sussex, BN7 2QG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Karm Concepts Ltd</div>
+          <p class="member-desc">Candle manufacturer based in Preston, Lancashire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.karm-candles.co.uk" target="_blank">www.karm-candles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@karm-candles.co.uk">info@karm-candles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01772 705590</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Preston Road, Grimsargh, Preston, Lancashire, PR2 5LD</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Love Scottish</div>
+          <p class="member-desc">Home fragrance manufacturer and retailer based in Hawick, Roxburghshire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.lovescottish.scot" target="_blank">www.lovescottish.scot</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:lesley@lovescottish.scot">lesley@lovescottish.scot</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07739 612991</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>49 North Bridge Street, Hawick, Roxburghshire, TD9 9PX</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Lyme Bay Collection Ltd</div>
+          <p class="member-desc">Manufacturers and retailers of premium soy candles and fragrance diffusers, hand poured on the Jurassic Coast of England.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.lymebaycollection.co.uk" target="_blank">www.lymebaycollection.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@lymebaycollection.co.uk">info@lymebaycollection.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07900 645747</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Woodlands, Charmouth Road, Axminster, Devon, EX13 5SZ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Maison Vivi</div>
+          <p class="member-desc">Luxury artisan candles and wax melts created using natural waxes and 100% pure essential oils. Also works closely with individual clients throughout Europe.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.maisonvivi.co.uk" target="_blank">www.maisonvivi.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:helen@maisonvivi.co.uk">helen@maisonvivi.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07946 162167</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 17, 109 Bartholomew Road, Kentish Town, London, NW5 2BJ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Moores Home and Garden</div>
+          <p class="member-desc">Manufacturers of home fragranced products including candles, diffusers, washes and lotions, room sprays, linen sprays and accessories.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://mooreshomeandgarden.com" target="_blank">mooreshomeandgarden.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:contact@mooreshomeandgarden.com">contact@mooreshomeandgarden.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01342 310810</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>4 and 5 Copthorne Business Park, Downlands Lane, Copthorne, West Sussex, RH10 3HX</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Muddles Green Ltd</div>
+          <p class="member-desc">A premier independent British Fragrance and Cosmetic House. Combines master perfumery skills with innovative cosmetic science to create fine fragrance, luxurious body care and beautiful home fragrances.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.pecksniffsshop.com" target="_blank">www.pecksniffsshop.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:enquiries@pecksniffs.com">enquiries@pecksniffs.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01273 723292</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Pecksniff House, 14 Wimbledon Avenue, Brandon, Suffolk, IP27 0NZ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Myrtle's Home Scents</div>
+          <p class="member-desc">Independent family business focused on sustainability and British manufacturing. Candles made using natural soy wax, cruelty free and sustainable ingredients.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.myrtlehomefurnishings.co.uk" target="_blank">www.myrtlehomefurnishings.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:enquires@myrtles.co.uk">enquires@myrtles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07740 367172</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>24 Holyoake Street, Enderby, Leicester, LE19 4NS</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Naturally Essential</div>
+          <p class="member-desc">Candles and melts hand poured using 100% natural soy wax and infused with only the best pure essential oils creating a beautiful scent that fills your home.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.naturally-essential.com" target="_blank">www.naturally-essential.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@naturally-essential.com">hello@naturally-essential.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07814 525138</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>22 Newnham Road, Ryde, Isle of Wight, PO33 3TE</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">O C Candles</div>
+          <p class="member-desc">Manufacturer of eco friendly container candles and wax melts.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.occandles.org.uk" target="_blank">www.occandles.org.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:customerservice@occandles.org.uk">customerservice@occandles.org.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07411 740024</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>22 Mavis Lane, Cookridge, Leeds, LS16 7LL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Oakes Candles Limited</div>
+          <p class="member-desc">Luxury artisan candles. Vegan friendly and paraben free. Designed and poured in Liverpool.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.oakescandles.co.uk" target="_blank">www.oakescandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@oakescandles.co.uk">info@oakescandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01514 860360</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>173 Triumph Way, Triumph Business Park, Speke Hall Road, Liverpool, L24 9GQ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Olivia's Haven Ltd</div>
+          <p class="member-desc">Luxury home fragrance company based on the North Coast of Northern Ireland.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://olivias-haven.co.uk" target="_blank">olivias-haven.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@olivias-haven.co.uk">hello@olivias-haven.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Units 7, 8, 17, 18, 19 and 20, Phase 2 Acorn Business Centre, 2 Riada Avenue, Ballymoney, Antrim, BT53 7LH</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">On a Wick and A Prayer Ltd</div>
+          <p class="member-desc">Candle manufacturer based in Tissington, Derbyshire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:ed@onawick.co.uk">ed@onawick.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01335 390639</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>The Candle Works, Tissington, Ashbourne, Derbyshire, DE6 1RA</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Orli Massage Candles</div>
+          <p class="member-desc">Full-service massage candle manufacturer offering conception, production, packaging and delivery for own label and client specifications. Also produces bulk melt and pour massage candle bases and a range of massage candle vessels.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://massagecandles.co.uk" target="_blank">massagecandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:admin@massagecandles.co.uk">admin@massagecandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07795 670545</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Units 4 and 5, 3 West Shore Road, Edinburgh, Midlothian, EH5 1QB</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Parks Candles</div>
+          <p class="member-desc">Candle manufacturer based in London.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.parkscandles.com" target="_blank">www.parkscandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@parkscandles.com">hello@parkscandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>020 8830 6300</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>48a George Street, London, W1U 7DY</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Pintail Candles Ltd</div>
+          <p class="member-desc">Founded in 1993. Specialises in the manufacture of fragranced container candles and reed diffusers. All products conceived, designed and hand made on site at Flookburgh by a highly skilled workforce using only the finest quality materials.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.pintailcandles.com" target="_blank">www.pintailcandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@pintailcandles.com">info@pintailcandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01539 559007</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 8, Airfield Approach Business Park, Moor Lane, Flookborough, Grange-over-Sands, Cumbria, LA11 7NG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Potter and Moore (Devon) Ltd</div>
+          <p class="member-desc">Candle manufacturer based in Tiverton, Devon.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:philip.long@potterandmoore.com">philip.long@potterandmoore.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01884 242626</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>5 Tiverton Way, Tiverton, Devon, EX16 6TG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Potters Crouch</div>
+          <p class="member-desc">Candle manufacturer based in St Albans, Hertfordshire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.potterscrouchcandles.co.uk" target="_blank">www.potterscrouchcandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@potterscrouchcandles.co.uk">info@potterscrouchcandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01727 836454</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Prae Wood Farm Barn, Prae Wood Farm, Hemel Hempstead Road, St Albans, AL3 6AA</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Sarafumi</div>
+          <p class="member-desc">Based in Guernsey in the Channel Islands. Producing natural wax based candles made with essential oils.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.sarafumi.com" target="_blank">www.sarafumi.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info.sarafumi@gmail.com">info.sarafumi@gmail.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07911 711009</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Gate Cottage, Bas Rouvets, St Saviours, Guernsey, GY7 9ND</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">SBL Technology</div>
+          <p class="member-desc">UK and international candle manufacturer and provider of premium home fragrances. Provides a full design and technical service. Based in the heart of Epping Forest, all candles are hand poured at their facility by fully trained candle makers.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.sandybaylondon.com" target="_blank">www.sandybaylondon.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:enquiries@sandybaylondon.com">enquiries@sandybaylondon.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01992 579949</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Berwick Farm, Berwick Lane, Stanford Rivers, Ongar, Essex, CM5 9PY</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Scent from Ireland Ltd</div>
+          <p class="member-desc">Manufactures a range of scented candles and associated scented products aimed at the Irish tourist and souvenir market. Also offers a bespoke candlemaking service under their Bespoke Candles brand.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.scentfromireland.com" target="_blank">www.scentfromireland.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@scentfromireland.com">info@scentfromireland.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>028 91477888</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 17, 16 Balloo Avenue, Bangor, Down, BT19 7QT</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Shed Soy Candles</div>
+          <p class="member-desc">Hand-poured in small batches. Candles made from uniquely blended 100% essential oils, vegan soy wax and natural cotton wicks.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.shedsoycandles.co.uk" target="_blank">www.shedsoycandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@shedsoycandles.co.uk">hello@shedsoycandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07989 775513</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>1 Crown Lane, Theale, Reading, Berkshire, RG7 5BG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">St Eval Candle Co Ltd</div>
+          <p class="member-desc">Handmade in Cornwall. St Eval candles are unique with scents inspired by their Cornish roots and earthy designs that make a home complete.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.stevalcandlecompany.co.uk" target="_blank">www.stevalcandlecompany.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@stevalcandlecompany.co.uk">info@stevalcandlecompany.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01841 540850</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Engollan, St Eval, Wadebridge, Cornwall, PL27 7UL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Stennah and Hope Ltd</div>
+          <p class="member-desc">Home fragrance manufacturers specialising in natural, organic and vegan products.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.stennahandhope.co.uk" target="_blank">www.stennahandhope.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@stennahandhope.co.uk">info@stennahandhope.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0208 556 5500</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 46C, Leyton Industrial Village, Argall Avenue, Leyton, London, E10 7QP</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Stoneglow Candles</div>
+          <p class="member-desc">Luxury candles and diffuser manufacturer. With over 26 years experience in designing and creating handmade candles, they have become the natural choice for high quality home fragrance. Also offers a bespoke and contract service.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.stoneglowcandles.co.uk" target="_blank">www.stoneglowcandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:Sales@stoneglowcandles.co.uk">Sales@stoneglowcandles.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0208 595 8878</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>5 Lyon Road, Romford, Essex, RM1 2BA</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">The Candle Mill</div>
+          <p class="member-desc">Producers of luxury soy candles, wax melts and reed diffusers.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.candlemill.co.uk" target="_blank">www.candlemill.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@candlemill.co.uk">hello@candlemill.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07501 803967</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>21 Boundary Lane, Dickens Heath, Solihull, West Midlands, B90 1TX</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">The Heart of a Garden Ltd</div>
+          <p class="member-desc">Originally a greetings card publisher devoted to supplying the independent sector. Now also producing other gift products including candles.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.theheartofagarden.com" target="_blank">www.theheartofagarden.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@heartofagarden.com">sales@heartofagarden.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01209 315685</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>4-7 Parc Erissey, Redruth, Cornwall, TR16 4HZ</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">The NOA Collective Limited</div>
+          <p class="member-desc">Luxury home fragrance brand specialising in candles, wax melts and reed diffusers. Sister brand Own offers white label and custom branded fragrance products, plus a B2B trade offering and the NOA academy for candle making masterclasses.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://shopnoa.co.uk" target="_blank">shopnoa.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@shopnoa.co.uk">hello@shopnoa.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07541 312313</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Heritage Exchange, South Lane, Elland, HX5 0HG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">The Stirling Candle Company</div>
+          <p class="member-desc">Family business offering hand-poured candles, wax melts, diffusers, and room sprays. All products are vegan, sustainable, and free from parabens and paraffin. Even their glitter is biodegradable and plant-based.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.thestirlingcandlecompany.co.uk" target="_blank">www.thestirlingcandlecompany.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@thestirlingcomapny.co.uk">info@thestirlingcomapny.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07944 744683</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>18 Birch Avenue, Stirling, Scotland, FK8 2PN</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Torc Candles Ltd</div>
+          <p class="member-desc">Candle manufacturer based in Borris, Co. Carlow, Ireland.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.torccandles.com" target="_blank">www.torccandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:davidsammon@torccandles.com">davidsammon@torccandles.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Borris, Co. Carlow, Ireland</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Urban Apothecary Limited</div>
+          <p class="member-desc">British brand evoking moods and memories through luxury home fragrance.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.urbanapothecarylondon.com" target="_blank">www.urbanapothecarylondon.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:office@urbanapothecarylondon.com">office@urbanapothecarylondon.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0333 577 5288</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Grosvenor House, Uppingham Road, Houghton on the Hill, Leicester, LE7 9HG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Vuur Ltd</div>
+          <p class="member-desc">Candle manufacturer based in Devon. Specialises in pillar and moulded candles.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.vuurco.com" target="_blank">www.vuurco.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:hello@vuurco.com">hello@vuurco.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>+44 1803 900104</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 5 Alphin Brook Road, Marsh Barton, Exeter, EX2 8RG</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Wax Lyrical Ltd</div>
+          <p class="member-desc">One of the UK's largest privately owned home fragrance companies, founded in 1980. Designs and manufactures candles, reed diffusers, room sprays and oils in their factory in the Lake District.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.wax-lyrical.com" target="_blank">www.wax-lyrical.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:customerservices@wax-lyrical.co.uk">customerservices@wax-lyrical.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01229 461100</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>London Road, Lindal-in-Furness, Ulverston, Cumbria, LA12 0LD</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Wax the Matter? Candles</div>
+          <p class="member-desc">Small enterprise making candles and running workshops through the medium of Welsh and English. Established in 2008. Uses primary soy, rapeseed, bees and paraffin wax with candle perfumes, essential oils and candle dyes.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.waxthematter.co.uk" target="_blank">www.waxthematter.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:candles@waxthematter.co.uk">candles@waxthematter.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01239 881227</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Rhyd-Y-Fantwn, Monnington, Moylegrove, Cardigan, Pembrokeshire, SA43 3BL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Wick and Tallow Ltd</div>
+          <p class="member-desc">British company that manufactures both its own brand and bespoke candles.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.wickandtallow.com" target="_blank">www.wickandtallow.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@wickandtallow.co">info@wickandtallow.co</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0203 286 3940</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>4 Putney Common, London, SW15 1HL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Wonderland Candles</div>
+          <p class="member-desc">Beautifully crafted hand poured candles made with high quality ingredients and tested for safety and enjoyment.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:wonderlandcandlesuk@gmail.com">wonderlandcandlesuk@gmail.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>07306 898555</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>18 Dunsden Close, Didcot, Oxfordshire, OX11 7BB</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SUPPLIERS -->
+    <div class="cat-section" id="suppliers">
+      <div class="cat-header">
+        <h2 class="cat-title">Suppliers</h2>
+        <span class="cat-count">9 members</span>
+      </div>
+      <div class="members-grid">
+
+        <div class="member-card">
+          <div class="member-name">AromaChimie Group</div>
+          <p class="member-desc">Leading supplier and manufacturer in the petroleum, mineral and chemical industry since 1983. Produces and supplies paraffin waxes and petroleum jelly to all major markets. Currently present in 7 countries.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.aromachimie.co.uk" target="_blank">www.aromachimie.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:europe.enquiries@aromachimie.co.uk">europe.enquiries@aromachimie.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0207 316 3092</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>239 High Street, Kensington, London, W8 6SN</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">British Wax</div>
+          <p class="member-desc">Founded in 1914. Specialises in natural and organic waxes for candles. Distributes major natural wax brands and produces high performance custom blends to help candle manufacturers achieve their sustainability goals.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.britishwax.com" target="_blank">www.britishwax.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:wax@britishwax.com">wax@britishwax.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01737 761242</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>35 Holmethorpe Avenue, Redhill, Surrey, RH1 2NL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">European Flavours and Fragrances Plc</div>
+          <p class="member-desc">A creative fragrance house that prides itself on developing successful solutions for clients, helping them win new customers and build a long term following.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.effgroup.com" target="_blank">www.effgroup.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@effgroup.com">info@effgroup.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01920 485485</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>9 Peergrove Estate, Marsh Lane, Ware, Herts, SG12 9QL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">French Color and Fragrance</div>
+          <p class="member-desc">Founded in 1974 with fully integrated colour and fragrance laboratories, along with a full line of performance additives. Expertise in colour, fragrance and their unique relationship.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.frenchcolor.com" target="_blank">www.frenchcolor.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@frenchcolor.com">sales@frenchcolor.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>+1 (201) 567 2883</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>488 Grand Avenue, Englewood, New Jersey, USA, 07631</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">H and R ChemPharm UK</div>
+          <p class="member-desc">Operates from a 10,000m2 site in the heart of the United Kingdom with a long history in the manufacture of oils and lubricants. Produces refinery based specialties developed in partnership with customers.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.hur.com" target="_blank">www.hur.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@hur.com">sales@hur.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0121 522 0107</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Dudley Road, Tipton, West Midlands, DY4 8EH</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Kerax</div>
+          <p class="member-desc">Wax supplier based in Chorley, Lancashire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.kerax.co.uk" target="_blank">www.kerax.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:sales@kerax.co.uk">sales@kerax.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01257 237350</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Kerax Ltd, Cowling Road, Chorley, Lancashire, PR6 9DR</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Meade King Robinson</div>
+          <p class="member-desc">Industry supplier based in Liverpool.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.mkr.co.uk" target="_blank">www.mkr.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@mkr.co.uk">info@mkr.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0151 236 3191</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Tower Building, 22 Water Street, Liverpool, L3 1BL</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Poth Hille and Co Ltd</div>
+          <p class="member-desc">Industry supplier based in Rainham, Essex.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.poth-hille.co.uk" target="_blank">www.poth-hille.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@poth-hille.co.uk">info@poth-hille.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01708 526828</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Unit 18, Easter Industrial Park, Ferry Lane South, Rainham, Essex, RM13 9BP</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Safic Alcan UK Ltd</div>
+          <p class="member-desc">Industry supplier based in Warrington.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.safic-alcan.co.uk" target="_blank">www.safic-alcan.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:info@safic-alcan.co.uk">info@safic-alcan.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>+44 (0) 1925 848135</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>812 Fountain Court, Birchwood Boulevard, Warrington, WA3 7QZ</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LABORATORIES AND CONSULTANTS -->
+    <div class="cat-section" id="laboratories">
+      <div class="cat-header">
+        <h2 class="cat-title">Laboratories and Consultants</h2>
+        <span class="cat-count">2 members</span>
+      </div>
+      <div class="members-grid">
+
+        <div class="member-card">
+          <div class="member-name">Cera Consulting Limited</div>
+          <p class="member-desc">For companies who have reached a limit of expertise in crucial areas. Offers a pragmatic approach to solving technical issues in six key areas: Manufacturing, Process Development, Process Engineering, Product Development, Quality and Continuous Improvement.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.ceraconsulting.com" target="_blank">www.ceraconsulting.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:jwall@ceraconsulting.com">jwall@ceraconsulting.com</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>0741 550 8509</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>45 Croslands Park, Barrow-in-Furness, Cumbria, LA13 9LB</span></div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-name">Satra Technology Centre</div>
+          <p class="member-desc">Technology and testing centre based in Kettering, Northamptonshire.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.satra.co.uk" target="_blank">www.satra.co.uk</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>01536 410000</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Wyndham Way, Telford Way, Kettering, Northamptonshire, NN16 8SD</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GUILDS -->
+    <div class="cat-section" id="guilds">
+      <div class="cat-header">
+        <h2 class="cat-title">Guilds</h2>
+        <span class="cat-count">1 member</span>
+      </div>
+      <div class="members-grid">
+
+        <div class="member-card">
+          <div class="member-name">The Tallow Chandlers' Company</div>
+          <p class="member-desc">One of the ancient livery companies of the City of London. The Tallow Chandlers have been a part of the history of London and the candle trade since the 14th century.</p>
+          <div class="member-details">
+            <div class="member-detail"><span class="member-detail-label">Web</span><a href="http://www.tallowchandlers.org" target="_blank">www.tallowchandlers.org</a></div>
+            <div class="member-detail"><span class="member-detail-label">Email</span><a href="mailto:asstclerk@tallowchandlers.org">asstclerk@tallowchandlers.org</a></div>
+            <div class="member-detail"><span class="member-detail-label">Tel</span><span>02072 484726</span></div>
+            <div class="member-detail"><span class="member-detail-label">Address</span><span>Tallow Chandlers' Hall, 4 Dowgate Hill, London, EC4R 2SH</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Members Nationwide</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50%</div>
+      <div class="stat-label">of UK Candle Production</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">45+</div>
+      <div class="stat-label">Years Representing the Trade</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <img src="logo.png" alt="British Candlemakers Federation">
+          </div>
+          <p class="footer-tagline">Representing the UK candle industry since 1978. Promoting safety, quality and the interests of the trade at home and abroad.</p>
+        </div>
+        <div>
+          <p class="footer-col-title">About</p>
+          <ul class="footer-links">
+            <li><a href="about.html">About the BCF</a></li>
+            <li><a href="objectives.html">Objectives</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="news.html">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="safety.html">Candle Safety</a></li>
+            <li><a href="resources.html">Industry Resources</a></li>
+            <li><a href="links.html">Useful Links</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Contact</p>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="membership.html">Join the BCF</a></li>
+            <li><a href="members.html">Member Login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 British Candlemakers Federation. All rights reserved.</p>
+        <p>Proudly founded in Britain.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

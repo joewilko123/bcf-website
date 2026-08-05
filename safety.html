@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candle Safety — British Candlemakers Federation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:  #1B2A4A;
+      --gold:  #B89A6A;
+      --white: #FFFFFF;
+      --off:   #F7F6F3;
+      --text:  #2C2C2C;
+      --mid:   #666666;
+      --light: #999999;
+      --border:#E0DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: var(--white);
+      padding: 8px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+      height: 80px;
+    }
+
+    .nav-logo img { height: auto; width: auto; max-height: 100px; display: block; }
+
+    .nav-pill {
+      background: var(--white);
+      border-radius: 50px;
+      padding: 10px 8px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
+
+    .nav-links a {
+      display: block;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-member {
+      margin-left: 8px;
+      background: var(--navy);
+      color: var(--white) !important;
+      border-radius: 50px;
+      padding: 10px 22px !important;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+      transition: background 0.15s;
+    }
+
+    .nav-member:hover { background: #263d6b !important; }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: var(--navy);
+      padding: 80px 40px;
+    }
+
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; }
+
+    .page-hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .page-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+      max-width: 640px;
+      margin-bottom: 20px;
+    }
+
+    .page-hero-desc {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 40px;
+    }
+
+    .breadcrumb-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--light);
+    }
+
+    .breadcrumb a { color: var(--light); transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb span { color: var(--navy); }
+
+    /* INTRO */
+    .intro {
+      padding: 72px 40px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(26px, 2.5vw, 38px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .rule {
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px 0 24px;
+    }
+
+    .intro-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.85;
+      max-width: 720px;
+    }
+
+    /* SAFETY GRID */
+    .safety-section {
+      padding: 0 40px 88px;
+    }
+
+    .safety-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .safety-tile {
+      background: var(--white);
+      padding: 32px 28px;
+      transition: background 0.2s;
+    }
+
+    .safety-tile:hover { background: var(--off); }
+
+    .safety-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 16px;
+      color: var(--navy);
+    }
+
+    .safety-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--navy);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .safety-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .safety-body {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* WARNING BANNER */
+    .warning-banner {
+      background: var(--navy);
+      padding: 48px 40px;
+      margin-bottom: 0;
+    }
+
+    .warning-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .warning-item {
+      background: var(--navy);
+      padding: 32px 28px;
+      text-align: center;
+    }
+
+    .warning-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--gold);
+      font-style: italic;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .warning-label {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    /* ADDITIONAL TIPS */
+    .tips-section {
+      background: var(--off);
+      padding: 88px 40px;
+    }
+
+    .tips-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .tip-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 28px 28px 28px 32px;
+    }
+
+    .tip-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .tip-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--white);
+      padding: 88px 40px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-inner { max-width: 560px; margin: 0 auto; }
+
+    .cta-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(24px, 2.5vw, 34px);
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .cta-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 14px 32px;
+      border-radius: 3px;
+      transition: background 0.15s;
+      border: 1px solid transparent;
+      margin: 0 6px;
+    }
+
+    .btn-dark { background: var(--navy); color: var(--white); }
+    .btn-dark:hover { background: #263d6b; }
+    .btn-outline { background: transparent; color: var(--navy); border-color: var(--border); }
+    .btn-outline:hover { border-color: var(--navy); }
+
+    /* STAT BAR */
+    .stat-bar {
+      background: var(--navy);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-item {
+      padding: 52px 40px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(36px, 3vw, 48px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 64px 40px 32px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .footer-logo { margin-bottom: 16px; }
+    .footer-logo img { height: 44px; filter: brightness(0) invert(1); opacity: 0.85; }
+    .footer-tagline { font-size: 13px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.45); }
+    .footer-col-title { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.5); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 960px) {
+      nav { padding: 8px 24px; }
+      .nav-pill { display: none; }
+      .page-hero { padding: 56px 24px; }
+      .breadcrumb { padding: 12px 24px; }
+      .intro { padding: 56px 24px 32px; }
+      .safety-section { padding: 0 24px 64px; }
+      .safety-grid { grid-template-columns: repeat(2, 1fr); }
+      .warning-inner { grid-template-columns: 1fr; }
+      .tips-section { padding: 64px 24px; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 64px 24px; }
+      .stat-bar { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 560px) {
+      .safety-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="British Candlemakers Federation">
+      </a>
+      <div class="nav-pill">
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="objectives.html">Objectives</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="safety.html" style="color:var(--navy); font-weight:500;">Candle Safety</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="members.html" class="nav-member">Member Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Candle Safety</p>
+      <h1 class="page-hero-title">Burn safely. Enjoy every moment.</h1>
+      <p class="page-hero-desc">The BCF is committed to promoting the safe use and enjoyment of candles in every home. Follow these guidelines to burn your candles safely.</p>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Candle Safety</span>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <p class="eyebrow">Safety Guidelines</p>
+    <h2 class="section-heading">Candle safety instructions</h2>
+    <div class="rule"></div>
+    <p class="intro-body">Candles are beautiful, safe products when used correctly. The BCF works with its members to ensure that every candle sold in the UK meets the highest safety standards. The guidelines below set out the key safety instructions that apply to all candles. Always read and follow the instructions provided on your candle's packaging.</p>
+  </div>
+
+  <!-- SAFETY GRID -->
+  <div class="safety-section">
+    <div class="safety-inner">
+      <div class="safety-grid">
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="safety-title">Never Leave a Burning Candle Unattended</div>
+          <p class="safety-body">Always put out candles when leaving a room or before going to sleep. You should also put out a candle if the candle smokes, repeatedly flickers or the flame is not controlled.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+          </div>
+          <div class="safety-title">Keep Out of Reach of Children and Pets</div>
+          <p class="safety-body">Never place lit candles where they can be easily knocked over by anyone, especially children and pets.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <div class="safety-title">Keep Away from Anything That Can Catch Fire</div>
+          <p class="safety-body">Place candles on a heat resistant and non-flammable surface, at least 30cm away from anything that can catch fire, including but not limited to curtains and decorations.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="safety-title">Leave at Least 7cm Between Burning Candles</div>
+          <p class="safety-body">Follow the recommended minimum distance on the packaging, or if not available, leave at least 7cm to be safe. Candles placed too close together can drip or soot, and tealights can flare up.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="safety-title">Do Not Place Candles in a Draught</div>
+          <p class="safety-body">Keep candles out of draughts to prevent rapid, uneven burning, sooting and excessive dripping. Lightweight curtains can waft into the flame if in a draught.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+          </div>
+          <div class="safety-title">Do Not Place Candles Near a Source of Heat</div>
+          <p class="safety-body">The higher the temperature around a candle, the greater the risks. For example, tealights on a TV can flare up and melt through the plastic, and other types of candles might drip wax.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="safety-title">Always Use a Candleholder</div>
+          <p class="safety-body">Candle holders should be heat resistant and non-flammable. They should also be stable and big enough to collect dripping wax.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <div class="safety-title">Place Candles in an Upright Position</div>
+          <p class="safety-body">Stand candles straight to avoid dripping and minimise the risk of flaring. Glass cups can crack if the flame touches the side.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="safety-title">Trim Wick to About 1cm Before Lighting</div>
+          <p class="safety-body">Trim the wick with scissors or a wick trimmer before lighting. If the wick is too long, a lump of carbon might form on it as it burns, known as clubbing, or the flame might become too high and start to soot.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"/><line x1="3" y1="22" x2="21" y2="22"/></svg>
+          </div>
+          <div class="safety-title">Trim Edges to a Height of 1cm</div>
+          <p class="safety-body">If your candle was not produced in a glass form, trim the edges with a knife to a height of 1cm before burning. This ensures proper airflow to the flame.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+          </div>
+          <div class="safety-title">Keep the Wax Pool Clear of Debris</div>
+          <p class="safety-body">Flammable objects in the wax pool, such as matches, insects, flammable decorations or lumps from the wick, can ignite and cause the candle to overheat and flare up.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="safety-title">Do Not Move a Burning Candle</div>
+          <p class="safety-body">Moving a candle can have the same effect as placing it in a draught, causing sooting and dripping. If a tealight is moving when all the wax is molten, the wick might change position and cause the candle to flare up.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+          </div>
+          <div class="safety-title">Always Snuff Out the Flame. Do Not Blow It Out.</div>
+          <p class="safety-body">Use a candle snuffer when putting out a candle. It is especially important not to blow out a candle in a container, such as a tealight, as this increases the risk of flaring and hot wax could spatter.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="safety-title">Never Use Liquid to Extinguish a Flame</div>
+          <p class="safety-body">If the candle cannot be extinguished easily, cover it with a damp cloth. Never use water to extinguish candles. The water can cause the hot wax to spatter and the candle container to break.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <div class="safety-title">Do Not Allow the Candle to Burn Out Completely</div>
+          <p class="safety-body">Put out candles when they have burnt down to about 2cm from their holders. If a candle burns down completely it can cause burn marks or even start a fire, as a glass holder can crack and metal holders can become extremely hot.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div class="safety-title">Maximum Height of Candle</div>
+          <p class="safety-body">Using a higher candle than recommended in a lantern may cause the candle to melt down due to overheating. This also means the lantern will become very hot and burning accidents may occur.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 12h20M12 2v20"/></svg>
+          </div>
+          <div class="safety-title">Only Use Tealights in Holders with Sufficient Ventilation</div>
+          <p class="safety-body">Only use tealights in holders, oil burners and warming stoves with sufficient ventilation. Insufficient ventilation can cause the tealight to flare up.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="safety-title">Use a Suitable Container for Liquifying Candles</div>
+          <p class="safety-body">Always use a candle holder of suitable size and shape, as some candles become liquid while burning. Always use a candle holder of suitable size and shape.</p>
+        </div>
+
+        <div class="safety-tile">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <div class="safety-title">Floating Candles for Use in Water Only</div>
+          <p class="safety-body">Floating candles must only be used floating in water. Put them in a suitable water-filled bowl.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- WARNING BANNER -->
+  <div class="warning-banner">
+    <div class="warning-inner">
+      <div class="warning-item">
+        <div class="warning-num">30cm</div>
+        <div class="warning-label">Minimum distance from anything that can catch fire</div>
+      </div>
+      <div class="warning-item">
+        <div class="warning-num">7cm</div>
+        <div class="warning-label">Minimum distance between burning candles</div>
+      </div>
+      <div class="warning-item">
+        <div class="warning-num">1cm</div>
+        <div class="warning-label">Recommended wick length before lighting</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADDITIONAL TIPS -->
+  <div class="tips-section">
+    <div class="tips-inner">
+      <p class="eyebrow">Good to Know</p>
+      <h2 class="section-heading">Additional safety guidance</h2>
+      <div class="rule"></div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-title">The First Burn</div>
+          <p class="tip-body">The first time you burn a new candle is the most important. Allow the wax to melt all the way to the edge of the container before extinguishing it. This prevents tunnelling and ensures an even burn for the life of the candle.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-title">Burn Time</div>
+          <p class="tip-body">Do not burn a candle for more than 4 hours at a time. After extinguishing, allow the candle to cool and solidify before relighting. This prevents the wick from becoming too long and the wax pool from becoming too deep.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-title">Storing Candles</div>
+          <p class="tip-body">Store candles in a cool, dry place away from direct sunlight and sources of heat. This prevents discolouration and helps the candle maintain its fragrance and shape over time.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-title">Candle Safety Standards</div>
+          <p class="tip-body">All candles sold in the UK must meet the requirements of BS EN 15493 (candle safety requirements), BS EN 15494 (candle safety labels) and BS EN 15426 (sooting performance testing). BCF members are committed to meeting and exceeding these standards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-inner">
+      <p class="eyebrow">Find Out More</p>
+      <h2 class="cta-title">Questions about candle safety?</h2>
+      <p class="cta-body">The BCF works with its members and regulators to uphold the highest standards of candle safety in the UK. If you have a specific query, get in touch with our team.</p>
+      <a href="contact.html" class="btn btn-dark">Contact Us</a>
+      <a href="membership.html" class="btn btn-outline">Join the BCF</a>
+    </div>
+  </div>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Members Nationwide</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50%</div>
+      <div class="stat-label">of UK Candle Production</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">45+</div>
+      <div class="stat-label">Years Representing the Trade</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <img src="logo.png" alt="British Candlemakers Federation">
+          </div>
+          <p class="footer-tagline">Representing the UK candle industry since 1978. Promoting safety, quality and the interests of the trade at home and abroad.</p>
+        </div>
+        <div>
+          <p class="footer-col-title">About</p>
+          <ul class="footer-links">
+            <li><a href="about.html">About the BCF</a></li>
+            <li><a href="objectives.html">Objectives</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="news.html">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="safety.html">Candle Safety</a></li>
+            <li><a href="resources.html">Industry Resources</a></li>
+            <li><a href="links.html">Useful Links</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Contact</p>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="membership.html">Join the BCF</a></li>
+            <li><a href="members.html">Member Login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 British Candlemakers Federation. All rights reserved.</p>
+        <p>Proudly founded in Britain.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
